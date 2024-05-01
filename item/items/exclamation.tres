@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ItemDataUse" load_steps=4 format=3 uid="uid://dvhknrh71807i"]
+
+[ext_resource type="Script" path="res://item/item_data_use.gd" id="1_pon3a"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_m0w5c"]
+load_path = "res://.godot/imported/Blocks_PixelArt_Atlas.png-2c0ae9ba524d76a767bee12d6e72462b.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bm50c"]
+atlas = SubResource("CompressedTexture2D_m0w5c")
+region = Rect2(32, 48, 16, 16)
+
+[resource]
+script = ExtResource("1_pon3a")
+block_id = 9
+name = "Exclamation Block"
+description = "!!!!!"
+stackable = true
+texture = SubResource("AtlasTexture_bm50c")

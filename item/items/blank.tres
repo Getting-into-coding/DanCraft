@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ItemDataUse" load_steps=4 format=3 uid="uid://dan22b5f5nntk"]
+
+[ext_resource type="Script" path="res://item/item_data_use.gd" id="1_oit7m"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bblnr"]
+load_path = "res://.godot/imported/Blocks_PixelArt_Atlas.png-2c0ae9ba524d76a767bee12d6e72462b.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bm50c"]
+atlas = SubResource("CompressedTexture2D_bblnr")
+region = Rect2(0, 64, 16, 16)
+
+[resource]
+script = ExtResource("1_oit7m")
+block_id = 0
+name = "Blank Block"
+description = "A clean slate"
+stackable = true
+texture = SubResource("AtlasTexture_bm50c")

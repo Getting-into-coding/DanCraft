@@ -1,0 +1,14 @@
+AudioStreamPlayer
+Control
+RichTextLabel
+Label
+MarginContainer
+CanvasLayer
+ColorRect
+HSlider
+GridContainer
+VBoxContainer
+Node
+AnimationPlayer
+Button
+PanelContainer

@@ -1,0 +1,77 @@
+[gd_scene load_steps=7 format=3 uid="uid://cujtadlpsyxxq"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_o2rbl"]
+[ext_resource type="PackedScene" uid="uid://bvxg33ut0rr0k" path="res://characters/Character_Male_1.gltf" id="2_22cvj"]
+[ext_resource type="AudioStream" uid="uid://bu022pnf1wlqr" path="res://Audio/Sfx/place_sfx.mp3" id="3_yjimw"]
+[ext_resource type="AudioStream" uid="uid://3dikn3ua7y5s" path="res://Audio/Sfx/break_sfx.mp3" id="4_mau6u"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_314c8"]
+size = Vector3(1.25, 3.5, 1.25)
+
+[sub_resource type="BoxMesh" id="BoxMesh_eqq1k"]
+size = Vector3(1.5, 3.5, 1.5)
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_o2rbl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_314c8")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("BoxMesh_eqq1k")
+
+[node name="Head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.982787, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.16831, 0.359533)
+
+[node name="RayCast3D" type="RayCast3D" parent="Head/Camera3D"]
+target_position = Vector3(0, 0, -8)
+
+[node name="ColorRect" type="ColorRect" parent="Head/Camera3D"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1.0
+offset_top = -6.0
+offset_right = 1.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+
+[node name="ColorRect2" type="ColorRect" parent="Head/Camera3D/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 6.0
+offset_top = -1.0
+offset_right = 8.0
+offset_bottom = 11.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.57079
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+
+[node name="Character_Male_1" parent="." instance=ExtResource("2_22cvj")]
+transform = Transform3D(-2, 0, -1.74846e-07, 0, 2, 0, 1.74846e-07, 0, -2, 0.000455856, -2.22394, 0.476196)
+visible = false
+
+[node name="Place_Sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_yjimw")
+bus = &"SFX"
+
+[node name="Break_Sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_mau6u")
+bus = &"SFX"
